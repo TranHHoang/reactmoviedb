@@ -1,3 +1,10 @@
+import { BrowserRouter as Router } from "react-router-dom";
+import { AppRoutes } from "~/routes";
+
 export function App() {
-  return <div className="mx-auto px-0">Hello World</div>;
+  return (
+    <Router>
+      <AppRoutes />
+    </Router>
+  );
 }
