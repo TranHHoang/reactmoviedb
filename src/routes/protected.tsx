@@ -1,5 +1,5 @@
 import { lazy } from "~/utils/lazyImport";
-import { RouteObject } from "react-router-dom";
+import { Navigate, RouteObject } from "react-router-dom";
 
 const { Contents } = lazy(() => import("~/features/content"), "Contents");
 const { Details } = lazy(() => import("~/features/content"), "Details");
@@ -12,5 +12,9 @@ export const protectedRoutes: RouteObject[] = [
   {
     path: "/details/:id",
     element: <Details />,
+  },
+  {
+    path: "*",
+    element: <Navigate to="." />,
   },
 ];
