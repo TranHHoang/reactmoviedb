@@ -2,7 +2,11 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        "fit5-gap4": "repeat(auto-fill, minmax(max(20%, 150px), 1fr))",
+      },
+    },
   },
   plugins: [],
 };

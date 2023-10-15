@@ -8,7 +8,9 @@ export function NavBar() {
       {user && (
         <>
           <div>Hello, {user.username}!</div>
-          <button onClick={clearUser}>Logout</button>
+          <button onClick={clearUser} className="bg-slate-400">
+            Logout
+          </button>
         </>
       )}
     </div>
