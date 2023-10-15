@@ -15,6 +15,6 @@ export const protectedRoutes: RouteObject[] = [
   },
   {
     path: "*",
-    element: <Navigate to="." />,
+    element: <Navigate to="/" />,
   },
 ];
