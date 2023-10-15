@@ -3,6 +3,8 @@ import { UseQueryResult } from "react-query";
 import { MovieResponse } from "../api/movies";
 import { Movie as MovieType } from "../types";
 import { Movie } from "./Movie";
+import { Pagination } from "./Pagination";
+import { LoadingIndicator } from "./LoadingIndicator";
 
 interface MoviePaginationProps {
   page: number;
@@ -11,12 +13,7 @@ interface MoviePaginationProps {
   sortBy: string;
 }
 
-export const MoviePagination = memo(function MoviePagination({
-  page,
-  setPage,
-  moviesQuery,
-  sortBy,
-}: MoviePaginationProps) {
+export const MovieList = memo(function MovieList({ page, setPage, moviesQuery, sortBy }: MoviePaginationProps) {
   const [totalPages, setTotalPages] = useState<number>();
   const [totalResults, setTotalResults] = useState<number>();
   const [sortedResults, setSortedResult] = useState<MovieType[]>([]);
@@ -48,19 +45,9 @@ export const MoviePagination = memo(function MoviePagination({
 
   return (
     <>
-      <span>
-        Showing {(page - 1) * 20 + 1} to {Math.min(totalResults ?? 0, page * 20)} of {totalResults ?? 0} entries
-      </span>
-      <div>
-        <button onClick={() => setPage(page - 1)} disabled={page === 1}>
-          Prev
-        </button>
-        <button onClick={() => setPage(page + 1)} disabled={page === (totalPages ?? 0)}>
-          Next
-        </button>
-      </div>
+      <Pagination page={page} setPage={setPage} totalPages={totalPages} totalResults={totalResults} />
       {moviesQuery?.isLoading ? (
-        <div>Loading contents...</div>
+        <LoadingIndicator />
       ) : moviesQuery?.data == null ? (
         <div>Error while fetching data</div>
       ) : (

@@ -8,7 +8,7 @@ export interface MovieProps {
 
 export function Movie({ movie }: MovieProps) {
   return (
-    <div className="w-full">
+    <div className="relative w-full">
       <Link to={ROUTES.DETAILS + movie.id} className="cursor-pointer">
         {movie.poster_path ? (
           <img
@@ -21,8 +21,10 @@ export function Movie({ movie }: MovieProps) {
           <div className="aspect-[2/3] w-full bg-slate-300">Image Not Found</div>
         )}
       </Link>
-      <div>{movie.vote_average}</div>
-      <div>{movie.title}</div>
+      <div className="absolute right-0 top-0 m-2 flex h-10 w-10 items-center justify-center rounded-full bg-gray-500 font-bold text-white">
+        {movie.vote_average}
+      </div>
+      <div className="my-2 text-xl font-semibold">{movie.title}</div>
     </div>
   );
 }
