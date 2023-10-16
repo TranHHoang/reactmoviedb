@@ -2,22 +2,7 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "~/routes/routes";
 import { useUserStore } from "~/stores/userStore";
-
-interface User {
-  username: string;
-  password: string;
-}
-
-const registeredUsers: User[] = [
-  {
-    username: "admin",
-    password: "admin",
-  },
-  {
-    username: "user",
-    password: "user",
-  },
-];
+import { registeredUsers } from "~/utils/users";
 
 export function Login() {
   const usernameRef = useRef<HTMLInputElement>(null);
