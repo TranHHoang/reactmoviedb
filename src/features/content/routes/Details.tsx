@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { cx } from "~/utils/cx";
 import { Layout } from "../components/Layout";
 import { YoutubeEmbed } from "../components/YoutubeEmbed";
 import { useMovieDetails } from "../api/details";
@@ -17,18 +18,20 @@ export function Details() {
   }
 
   if (detailsQuery.data == null) {
-    return <div>{detailsQuery.error as string}</div>;
+    return <div>{(detailsQuery.error as string) || "Error while fetching details"}</div>;
   }
 
   const details = detailsQuery.data;
 
   return (
     <Layout>
-      <img
-        className="absolute top-0 -z-10 w-full brightness-50"
-        src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
-      />
-      <div className="text-center text-white ">
+      {details.backdrop_path && (
+        <img
+          className="absolute top-0 -z-10 w-full brightness-50"
+          src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
+        />
+      )}
+      <div className={cx("text-center", details.backdrop_path && "text-white")}>
         <h2 className="text-2xl font-semibold">{details.title}</h2>
         <p className="italic">{details.tagline}</p>
         <div className="my-2">

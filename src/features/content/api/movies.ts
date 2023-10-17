@@ -17,7 +17,7 @@ interface GetMovieOptions {
   page: string;
 }
 
-export async function getMovies(options: GetMovieOptions) {
+async function getMovies(options: GetMovieOptions) {
   const params = new URLSearchParams({
     include_adult: "false",
     language: "en-US",
@@ -43,7 +43,7 @@ interface SearchMovieOptions {
   page: string;
 }
 
-export async function searchMovies(options: SearchMovieOptions) {
+async function searchMovies(options: SearchMovieOptions) {
   const params = new URLSearchParams({
     include_adult: "false",
     ...options,

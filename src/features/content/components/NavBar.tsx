@@ -8,7 +8,7 @@ export function NavBar() {
     <nav className="z-10 flex items-center justify-between p-4 px-4">
       {user && (
         <>
-          <Link to="/" className="text-xl font-bold text-blue-400">
+          <Link to="/" className="text-xl font-bold text-blue-300">
             TheMovieDB
           </Link>
           <button

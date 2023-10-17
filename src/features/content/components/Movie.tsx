@@ -18,13 +18,18 @@ export function Movie({ movie }: MovieProps) {
             title={movie.overview}
           />
         ) : (
-          <div className="aspect-[2/3] w-full bg-slate-300">Image Not Found</div>
+          <div className="flex aspect-[2/3] w-full items-center justify-center bg-slate-300">Image Not Found</div>
         )}
       </Link>
-      <div className="absolute right-0 top-0 m-2 flex h-10 w-10 items-center justify-center rounded-full bg-gray-500 font-bold text-white">
-        {movie.vote_average}
+      <div
+        className="absolute right-0 top-0 m-2 flex h-10 w-10 items-center justify-center rounded-full bg-gray-500 font-bold text-white"
+        data-testid="vote_average"
+      >
+        {Math.round(movie.vote_average * 100) / 100}
       </div>
-      <div className="my-2 text-xl font-semibold">{movie.title}</div>
+      <div className="my-2 text-xl font-semibold" data-testid="title">
+        {movie.title}
+      </div>
     </div>
   );
 }

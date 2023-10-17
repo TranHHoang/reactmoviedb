@@ -6,14 +6,14 @@ import { Movie } from "./Movie";
 import { Pagination } from "./Pagination";
 import { LoadingIndicator } from "./LoadingIndicator";
 
-interface MoviePaginationProps {
+export interface MovieListProps {
   page: number;
   setPage: (page: number) => void;
   moviesQuery: UseQueryResult<MovieResponse | undefined> | undefined;
   sortBy: string;
 }
 
-export const MovieList = memo(function MovieList({ page, setPage, moviesQuery, sortBy }: MoviePaginationProps) {
+export const MovieList = memo(function MovieList({ page, setPage, moviesQuery, sortBy }: MovieListProps) {
   const [totalPages, setTotalPages] = useState<number>();
   const [totalResults, setTotalResults] = useState<number>();
   const [sortedResults, setSortedResult] = useState<MovieType[]>([]);
@@ -49,7 +49,7 @@ export const MovieList = memo(function MovieList({ page, setPage, moviesQuery, s
       {moviesQuery?.isLoading ? (
         <LoadingIndicator />
       ) : moviesQuery?.data == null ? (
-        <div>Error while fetching data</div>
+        <div className="font-bold text-red-500">Error while fetching data</div>
       ) : (
         <div className="grid grid-cols-fit5-gap4">
           {sortedResults.map((movie) => (

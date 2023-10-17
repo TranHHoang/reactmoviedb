@@ -75,7 +75,7 @@ export function Contents() {
           </div>
           {showDropdown && (
             <div
-              id="dropdown"
+              data-testid="dropdown"
               className="absolute right-0 z-10 w-44 divide-gray-100 rounded-lg bg-white shadow"
               ref={dropdownRef}
             >

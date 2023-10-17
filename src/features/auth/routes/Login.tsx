@@ -14,14 +14,16 @@ export function Login() {
   const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
-    const username = usernameRef.current?.value ?? "";
-    const password = passwordRef.current?.value ?? "";
+    if (usernameRef.current && passwordRef.current) {
+      const username = usernameRef.current.value;
+      const password = passwordRef.current.value;
 
-    if (registeredUsers.find((u) => u.username === username && u.password === password)) {
-      setUser({ username });
-      navigate(ROUTES.CONTENTS);
-    } else {
-      setError("Wrong username or password");
+      if (registeredUsers.find((u) => u.username === username && u.password === password)) {
+        setUser({ username });
+        navigate(ROUTES.CONTENTS);
+      } else {
+        setError("Wrong username or password");
+      }
     }
   };
 
