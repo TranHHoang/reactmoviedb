@@ -4,7 +4,7 @@ Search and view movies' details from TheMovieDB
 
 ## Demo
 
-Run the demo app on [Vercel]()
+Run the demo app on [Vercel](https://reactmoviedb-six.vercel.app/)
 
 ## Technologies
 
