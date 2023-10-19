@@ -16,7 +16,7 @@ Run the demo app on [Vercel](https://reactmoviedb-six.vercel.app/)
 
 ## Run Locally
 
-- Requires `NodeJS v18+` and `pnpm`
+- Requires `NodeJS 18+` and `pnpm`
 
 To install `pnpm`
 
@@ -29,7 +29,13 @@ Clone the project and install the dependencies
 ```bash
   git clone https://github.com/TranHHoang/reactmoviedb
   cd reactmoviedb
-  pnpm install
+  pnpm i
+```
+
+Request the API key from [TheMovieDB](https://developer.themoviedb.org/docs/authentication-application), then edit the `.env` file with your API key
+
+```
+  VITE_MOVIEDB_API_KEY=<Your API Key>
 ```
 
 Start the dev server
@@ -38,15 +44,31 @@ Start the dev server
   pnpm dev
 ```
 
+### Login Accounts
+
+- Account 1
+
+```
+  Username: admin
+  Password: admin
+```
+
+- Account 2
+
+```
+  Username: user
+  Password: user
+```
+
 ## Running Tests
 
-To run tests, run the following command
+To run tests, use the following command
 
 ```bash
   pnpm test
 ```
 
-To generate the coverage, run the following command
+To generate the coverage, use the following command
 
 ```bash
   pnpm coverage
