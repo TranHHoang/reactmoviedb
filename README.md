@@ -16,12 +16,20 @@ Run the demo app on [Vercel](https://reactmoviedb-six.vercel.app/)
 
 ## Run Locally
 
-- Requires `NodeJS 18+` and `pnpm`
+_Requires `NodeJS 18+` and `pnpm`_
 
 To install `pnpm`
 
+- On POSIX systems
+
 ```bash
   curl -fsSL https://get.pnpm.io/install.sh | sh -
+```
+
+- On Windows (using Powershell)
+
+```powershell
+  iwr https://get.pnpm.io/install.ps1 -useb | iex
 ```
 
 Clone the project and install the dependencies
