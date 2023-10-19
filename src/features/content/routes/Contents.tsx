@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useDebounce, useClickAway } from "~/hooks";
 import { Layout } from "../components/Layout";
 import { MovieList } from "../components/MovieList";
@@ -35,6 +35,10 @@ export function Contents() {
 
   const moviesQuery = useMovies({ page: page.toString() }, !isSearching);
   const moviesSearchQuery = useSearchMovies({ page: page.toString(), query: debouncedQuery.trim() }, isSearching);
+
+  useEffect(() => {
+    setPage(1);
+  }, [debouncedQuery]);
 
   return (
     <Layout>

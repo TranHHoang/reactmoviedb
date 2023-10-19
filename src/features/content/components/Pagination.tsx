@@ -9,8 +9,8 @@ export function Pagination({ page, setPage, totalResults, totalPages }: Paginati
   return (
     <div className="my-8 flex flex-col items-center">
       <span className="text-md text-gray-700">
-        Showing <span className="font-semibold text-gray-900">{(page - 1) * 20 + 1}</span> to{" "}
-        <span className="font-semibold text-gray-900">{Math.min(totalResults ?? 0, page * 20)}</span> of{" "}
+        Showing <span className="font-semibold text-gray-900">{Math.min(totalResults ?? 0, (page - 1) * 20 + 1)}</span>{" "}
+        to <span className="font-semibold text-gray-900">{Math.min(totalResults ?? 0, page * 20)}</span> of{" "}
         <span className="font-semibold text-gray-900">{totalResults ?? 0}</span> Entries
       </span>
       <div className="xs:mt-0 mt-2 inline-flex">

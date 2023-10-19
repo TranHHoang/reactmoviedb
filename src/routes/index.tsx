@@ -1,7 +1,7 @@
 import { useRoutes } from "react-router-dom";
+import { useUserStore } from "~/stores/userStore";
 import { protectedRoutes } from "./protected";
 import { publicRoutes } from "./public";
-import { useUserStore } from "~/stores/userStore";
 
 export function AppRoutes() {
   const { user } = useUserStore();

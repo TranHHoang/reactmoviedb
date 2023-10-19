@@ -51,11 +51,14 @@ export const MovieList = memo(function MovieList({ page, setPage, moviesQuery, s
       ) : moviesQuery?.data == null ? (
         <div className="font-bold text-red-500">Error while fetching data</div>
       ) : (
-        <div className="grid grid-cols-fit5-gap4">
-          {sortedResults.map((movie) => (
-            <Movie key={movie.id} movie={movie} />
-          ))}
-        </div>
+        <>
+          {sortedResults.length === 0 && <div className="text-center">No result found</div>}
+          <div className="grid grid-cols-fit5-gap4">
+            {sortedResults.map((movie) => (
+              <Movie key={movie.id} movie={movie} />
+            ))}
+          </div>
+        </>
       )}
     </>
   );
