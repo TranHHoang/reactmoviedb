@@ -37,6 +37,7 @@ describe("<MovieList />", () => {
     const { result } = renderHook(
       () =>
         useQuery({
+          queryKey: ["loadingHook"],
           queryFn: async () => {
             await delay(1000);
             return undefined;
@@ -80,7 +81,6 @@ describe("<MovieList />", () => {
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
     render(<MovieList {...mockProps} moviesQuery={result.current} />);
-    // await screen.findAllByText(/image not found/i);
 
     await waitFor(() => expect(screen.getAllByText(/image not found/i)).toHaveLength(10));
   });
